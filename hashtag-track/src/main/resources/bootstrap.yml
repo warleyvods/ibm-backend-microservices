@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+spring:
+
+  cache:
+    cache-names: 'temperatureByCity, temperatureByCoordinates'
+    caffeine:
+      spec: 'expireAfterAccess=3s'
+
+  cloud:
+    config:
+      uri: '${SPRING_CLOUD_CONFIG:http://localhost:8083}'
+      enabled: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: '${EUREKA_ENV_NET:http://localhost:8081}/eureka'
+    fetch-registry: true
+    register-with-eureka: true
+
+feign:
+  hystrix:
+    enabled: true
+
+#Colocar no config
+url:
+  twitter:
+    search: 'https://api.twitter.com/2/tweets/search/'

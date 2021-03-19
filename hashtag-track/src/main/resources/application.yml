@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: hashtag-track
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true

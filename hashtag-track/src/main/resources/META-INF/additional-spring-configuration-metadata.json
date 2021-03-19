@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "external.openWeather.units",
+      "type": "java.lang.String",
+      "description": "Description for external.openWeather.units."
+    },
+    {
+      "name": "external.openWeather.url",
+      "type": "java.lang.String",
+      "description": "Description for external.openWeather.url."
+    }
+  ] }
