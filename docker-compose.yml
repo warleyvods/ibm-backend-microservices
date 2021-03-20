@@ -51,6 +51,7 @@ services:
     networks:
       - devnet
     depends_on:
+      - db
       - discovery
       - config-server
       - gateway
@@ -59,6 +60,27 @@ services:
       - discovery
       - gateway
     restart: on-failure
+
+  db:
+    image: postgres:10-alpine
+    container_name: db
+    hostname: db
+    restart: always
+    networks:
+      - devnet
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=twitter
+    volumes:
+      - './data/pg_db:/var/lib/postgresql'
+      - './data/pg_data:/var/lib/postgresql/data'
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
 
 networks:
   devnet:
