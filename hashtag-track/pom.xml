@@ -16,8 +16,6 @@
     <description>Spring Boot Micro-service Suggestion Track</description>
 
     <dependencies>
-
-
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>
@@ -42,11 +40,10 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
-        <finalName>suggestion-music</finalName>
+        <finalName>hashtag-track</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -72,5 +69,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

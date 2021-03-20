@@ -41,7 +41,7 @@ services:
       - discovery
     restart: on-failure
 
-  suggestion-track:
+  hashtag-track:
     container_name: hashtag-track-server
     build:
       context: ./hashtag-track
