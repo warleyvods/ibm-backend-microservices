@@ -22,7 +22,7 @@
     </properties>
 
     <modules>
-        <module>hashtag-track</module>
+        <module>hashtag-tracker</module>
         <module>gateway-server</module>
         <module>discovery-server</module>
         <module>config-server</module>

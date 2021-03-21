@@ -41,8 +41,8 @@ services:
       - discovery
     restart: on-failure
 
-  hashtag-track:
-    container_name: hashtag-track-server
+  hashtag-tracker:
+    container_name: hashtag-tracker-server
     build:
       context: ./hashtag-track
       dockerfile: Dockerfile
