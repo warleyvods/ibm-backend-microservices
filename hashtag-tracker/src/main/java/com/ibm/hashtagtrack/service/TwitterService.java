@@ -49,8 +49,9 @@ public class TwitterService {
 
         filterTextStatus(hashtag);
 
+        /*filtering tweets that should be analyzed the feelings*/
         for (Tweet tweet : hashtag.getTweets()) {
-            if (tweet.getNewText() != null) {
+            if (tweet.getNewText() != null && tweet.getGeo() != null && tweet.getGeo().getCoordinates() != null) {
                 tweet.setSentimentType(sentimentAnalyzerService.analyseSentimentText(tweet.getNewText()));
             }
         }
