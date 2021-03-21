@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 /**
@@ -47,7 +49,8 @@ public class TwitterHashtagsTrackController {
             tags = "Hashtag Tracker Search Controller"
     )
     @GetMapping("/v1/hashtag")
-    public ResponseEntity<List<TweetDTO>> getHashtagsCoordinates(@RequestParam String search) {
+    public ResponseEntity<List<TweetDTO>> getHashtagsCoordinates(
+            @RequestParam @Valid @NotBlank(message = "The hashtag could not be null or empty") String search) {
         List<TweetDTO> twitterCoordinates = twitterService.getTwitterCoordinates(search);
         return new ResponseEntity<>(twitterCoordinates, HttpStatus.OK);
     }

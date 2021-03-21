@@ -4,3 +4,10 @@ url:
     maxResults: '100'
     tweetField: 'geo'
     bearerToken: 'AAAAAAAAAAAAAAAAAAAAANsXNwEAAAAApWjPfT%2F1mVFhO5TK8LUsoOaacKo%3DdKhDWFzOo99tv7lQuhDLAd0ZrzfLzcInIZH9WvTltZPMW4HUFt'
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:alm;MODE=Oracle;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa

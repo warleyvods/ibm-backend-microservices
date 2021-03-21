@@ -6,4 +6,4 @@ spring:
     config:
       server:
         git:
-          uri: 'https://bitbucket.org/warleyvods/spring-config'
+          uri: 'https://bitbucket.org/warleyvods/spring-sv'
