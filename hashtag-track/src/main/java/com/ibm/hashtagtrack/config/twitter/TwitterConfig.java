@@ -4,18 +4,25 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * Twitter config for the API
+ * @author Warley Vinicius
+ */
 @Data
 @Component
 public class TwitterConfig {
 
-
     @Value("${url.twitter.search}")
     private String url;
 
-    private String maxResults = "100";
+    @Value("${url.twitter.maxResults}")
+    private String maxResults;
 
-    private String tweetFields = "geo";
+    @Value("${url.twitter.tweetField}")
+    private String tweetFields;
 
-    private String bearerToken = "AAAAAAAAAAAAAAAAAAAAANsXNwEAAAAApWjPfT%2F1mVFhO5TK8LUsoOaacKo%3DdKhDWFzOo99tv7lQuhDLAd0ZrzfLzcInIZH9WvTltZPMW4HUFt";
+    @Value("${url.twitter.bearerToken}")
+    private String bearerToken;
 
 }

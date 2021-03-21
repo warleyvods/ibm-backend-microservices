@@ -19,9 +19,4 @@ public class HashtagTrackApplication {
         SpringApplication.run(HashtagTrackApplication.class, args);
     }
 
-    @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        return builder.build();
-    }
-
 }

@@ -13,14 +13,12 @@ public class Geo {
         this.coordinates = coordinates;
     }
 
-    public Geo () {
-    }
+    public Geo () { }
 
     @JsonProperty("place_id")
     private String placeId;
 
     @JsonProperty("coordinates")
     private Coordinates coordinates;
-
 
 }

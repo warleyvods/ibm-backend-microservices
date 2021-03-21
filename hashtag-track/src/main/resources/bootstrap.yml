@@ -4,9 +4,9 @@ server:
 spring:
 
   cache:
-    cache-names: 'temperatureByCity, temperatureByCoordinates'
+    cache-names: 'twitterCoordinates'
     caffeine:
-      spec: 'expireAfterAccess=3s'
+      spec: 'expireAfterAccess=5s'
 
   cloud:
     config:
@@ -30,3 +30,6 @@ feign:
 url:
   twitter:
     search: 'https://api.twitter.com/2/tweets/search/'
+    maxResults: '100'
+    tweetField: 'geo'
+    bearerToken: 'AAAAAAAAAAAAAAAAAAAAANsXNwEAAAAApWjPfT%2F1mVFhO5TK8LUsoOaacKo%3DdKhDWFzOo99tv7lQuhDLAd0ZrzfLzcInIZH9WvTltZPMW4HUFt'

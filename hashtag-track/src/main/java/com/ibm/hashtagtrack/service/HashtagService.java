@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service for the Crud methods
+ */
 @Service
 public class HashtagService {
 
@@ -15,10 +18,18 @@ public class HashtagService {
         this.twitterRepository = twitterRepository;
     }
 
-    public HashtagEntity saveHashtag(HashtagEntity hashtagEntity) {
-        return twitterRepository.save(hashtagEntity);
+    /**
+     * Save a hashtagEntity in a database
+     * @param hashtagEntity hashtag location populated
+     */
+    public void saveHashtag(HashtagEntity hashtagEntity) {
+         twitterRepository.save(hashtagEntity);
     }
 
+    /**
+     * List all recent search from database
+     * @return list all researches
+     */
     public List<HashtagEntity> findAllHashtag() {
         return twitterRepository.findAll();
     }
