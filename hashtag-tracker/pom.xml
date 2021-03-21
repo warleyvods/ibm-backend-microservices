@@ -10,9 +10,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>hashtag-track</artifactId>
+    <artifactId>hashtag-tracker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hashtag-track</name>
+    <name>hashtag-tracker</name>
     <description>Spring Boot Micro-service Suggestion Track</description>
 
     <dependencies>
@@ -73,7 +73,7 @@
     </dependencies>
 
     <build>
-        <finalName>hashtag-track</finalName>
+        <finalName>hashtag-tracker</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -44,7 +44,7 @@ services:
   hashtag-tracker:
     container_name: hashtag-tracker-server
     build:
-      context: ./hashtag-track
+      context: ./hashtag-tracker
       dockerfile: Dockerfile
     ports:
     - '8082:8082'
