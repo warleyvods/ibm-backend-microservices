@@ -9,10 +9,11 @@ public class TweetDTO {
     public TweetDTO() {
     }
 
-    public TweetDTO(String latitude, String longitude, String label) {
+    public TweetDTO(String latitude, String longitude, String label, String status) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.label = label;
+        this.sentimental = status;
     }
 
     private String latitude;

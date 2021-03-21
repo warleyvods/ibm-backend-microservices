@@ -73,7 +73,6 @@ public class TwitterService {
         }
     }
 
-
     private List<TweetDTO> getPositions(Hashtag hashtag) {
         List<TweetDTO> dtoList = new ArrayList<>();
 
@@ -81,8 +80,9 @@ public class TwitterService {
         for (Tweet tweet : hashtag.getTweets()) {
             if (tweet.getGeo() != null && tweet.getGeo().getCoordinates() != null) {
                 dtoList.add(new TweetDTO(tweet.getGeo().getCoordinates().getCoordinates().get(1),
-                        tweet.getGeo().getCoordinates().getCoordinates().get(0), tweet.getNewText() +
-                        " STATUS: " + obtainSentimentalStatus(tweet.getSentimentType())));
+                        tweet.getGeo().getCoordinates().getCoordinates().get(0),
+                        tweet.getNewText() + " STATUS: " + obtainSentimentalStatus(tweet.getSentimentType()),
+                        obtainSentimentalStatus(tweet.getSentimentType())));
             }
         }
 
