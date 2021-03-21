@@ -18,7 +18,7 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
-        <stanford.corenlp.version>3.9.2</stanford.corenlp.version>
+        <stanford.corenlp.version>4.0.0</stanford.corenlp.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
     </properties>
 

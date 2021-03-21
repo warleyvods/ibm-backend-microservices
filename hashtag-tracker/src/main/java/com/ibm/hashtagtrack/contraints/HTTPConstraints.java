@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Constraints for the Twitter API
+ *
  * @author Warley Vinicius
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

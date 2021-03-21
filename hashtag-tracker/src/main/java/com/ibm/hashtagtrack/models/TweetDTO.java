@@ -1,6 +1,5 @@
 package com.ibm.hashtagtrack.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

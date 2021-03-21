@@ -8,7 +8,8 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Tweet {
 
-    public Tweet() { }
+    public Tweet() {
+    }
 
     public Tweet(String text, Geo geo) {
         this.text = text;

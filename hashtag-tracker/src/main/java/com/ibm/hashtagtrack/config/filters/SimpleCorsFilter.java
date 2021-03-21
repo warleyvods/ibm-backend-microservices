@@ -16,33 +16,27 @@ import java.io.IOException;
 @NoArgsConstructor
 public class SimpleCorsFilter implements Filter {
 
-	@Override
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-		HttpServletRequest request = (HttpServletRequest) req;
-		HttpServletResponse response = (HttpServletResponse) res;
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) res;
 
-		String origin = request.getHeader("origin");
-		addHeaderIfNotExist(response, "Access-Control-Allow-Origin", StringUtils.isEmpty(origin) ? "*" : origin);
+        String origin = request.getHeader("origin");
+        addHeaderIfNotExist(response, "Access-Control-Allow-Origin", StringUtils.isEmpty(origin) ? "*" : origin);
 
-		addHeaderIfNotExist(response, "Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-		addHeaderIfNotExist(response, "Access-Control-Max-Age", "3600");
-		addHeaderIfNotExist(response, "Access-Control-Allow-Headers",
-				"X-Requested-With, Content-Type, Authorization, x-csrf-token, X-XSRF-TOKEN");
-		addHeaderIfNotExist(response, "Access-Control-Allow-Credentials", "true");
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            response.getWriter().print("OK");
+            response.getWriter().flush();
+            response.setStatus(HttpServletResponse.SC_OK);
+        } else {
+            chain.doFilter(req, res);
+        }
+    }
 
-		if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-			response.getWriter().print("OK");
-			response.getWriter().flush();
-			response.setStatus(HttpServletResponse.SC_OK);
-		} else {
-			chain.doFilter(req, res);
-		}
-	}
-
-	private void addHeaderIfNotExist(HttpServletResponse response, String key, String value) {
-		if (response.getHeader(key) == null) {
-			response.setHeader(key, value);
-		}
-	}
+    private void addHeaderIfNotExist(HttpServletResponse response, String key, String value) {
+        if (response.getHeader(key) == null) {
+            response.setHeader(key, value);
+        }
+    }
 
 }

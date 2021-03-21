@@ -11,9 +11,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.Properties;
 
+/**
+ * Sentiment analysis service using CoreNLP Stanford
+ *
+ * @author Warley Vinicius
+ */
 @Service
 public class SentimentAnalyzerService {
 
+    /**
+     * Method that will analyze the sentiment through the text, using NLP.
+     *
+     * @param text tweet text already handled, without most of the special characters.
+     * @return the feeling in an entire school, with values from 0 to 4, totaling 5 types of feelings.
+     */
     public int analyseSentimentText(String text) {
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos, parse, sentiment");

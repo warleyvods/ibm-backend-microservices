@@ -1,7 +1,6 @@
 package com.ibm.hashtagtrack.network;
 
 
-
 import com.ibm.hashtagtrack.models.Coordinates;
 import com.ibm.hashtagtrack.models.Geo;
 import com.ibm.hashtagtrack.models.Hashtag;
@@ -20,6 +19,7 @@ import java.util.List;
 
 /**
  * Network client Using Spring Cloud Open Feign
+ *
  * @author Warley Vinicius
  */
 @Primary
@@ -27,13 +27,13 @@ import java.util.List;
 public interface TwitterHashtagsClient {
 
     /**
-     *  Performing the hashtags search with the "query" being sent using Spring cloud openfeign.
+     * Performing the hashtags search with the "query" being sent using Spring cloud openfeign.
      *
-     * @param search hashtag to be searched
+     * @param search     hashtag to be searched
      * @param maxResults Maximum amount of results (Obs: The maximum search limit is 100 results),
      *                   i'm using default 100.
-     * @param field field of geolocation attributes, the default is 'geo'
-     * @param token Twitter api token.
+     * @param field      field of geolocation attributes, the default is 'geo'
+     * @param token      Twitter api token.
      * @return All results with the searched hashtag.
      */
     @GetMapping("recent")
@@ -50,7 +50,8 @@ public interface TwitterHashtagsClient {
     class TwitterHashtagsClientFallback implements TwitterHashtagsClient {
 
         /**
-         *  In this fallback it returns 12 fixed locations on the map as a fallback
+         * In this fallback it returns 12 fixed locations on the map as a fallback
+         *
          * @return Object hashtag with 12 tweets mocked data hardcoded.
          */
         @Override
@@ -67,9 +68,9 @@ public interface TwitterHashtagsClient {
             tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-12.924261", "-38.440959")))));
             tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-12.254128", "-38.963305")))));
             tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-12.125264", "-45.038280")))));
-            tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-3.118576" , "-59.955166")))));
-            tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-3.178910" , "-58.443252")))));
-            tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-0.263671" , "-78.471094")))));
+            tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-3.118576", "-59.955166")))));
+            tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-3.178910", "-58.443252")))));
+            tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-0.263671", "-78.471094")))));
             tweets.add(new Tweet(fallback, new Geo(new Coordinates(point, Arrays.asList("-32.694866", "-56.007474")))));
 
             Hashtag hashtag = new Hashtag();

@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Endpoints controller API
+ *
  * @author Warley Vinicius
  */
 @RestController

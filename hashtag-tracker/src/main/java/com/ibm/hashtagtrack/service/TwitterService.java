@@ -14,6 +14,11 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Principal Service API
+ *
+ * @author Warley Vinicius
+ */
 @Service
 public class TwitterService {
 
@@ -34,9 +39,13 @@ public class TwitterService {
      * Main method that converts all 100 tweets found to a list of positions using latitude and longitude.
      * The Method also uses Cache, so that there is no overhead of similar searches
      * in a short period of time that could result in excessive use of the api.
-     *
-     * Note: Cache time of 5 seconds for invalidity. After 5 seconds even if the search
+     * <p>
+     * Note 1: Cache time of 5 seconds for invalidity. After 5 seconds even if the search
      * is the same hashtag it searches directly on the Twitter api
+     * <p>
+     * Note 2: Usually the list comes with a maximum of 100 searches, but that meant a lot of consultation time
+     * in the CoreNLP API, so the analysis of feelings will only analyze the feelings that will be
+     * on the exit directly on the frontend, speeding up the consultation time.
      *
      * @param search Hashtag sent in search directly from the frontend
      * @return List of positions of Tweets that were found comment with
@@ -73,6 +82,12 @@ public class TwitterService {
         }
     }
 
+    /**
+     * Assembles the list of DTO that will be sent to the frontend, only with the desired data.
+     *
+     * @param hashtag that will be treated.
+     * @return TweetDTO list.
+     */
     private List<TweetDTO> getPositions(Hashtag hashtag) {
         List<TweetDTO> dtoList = new ArrayList<>();
 
@@ -89,6 +104,12 @@ public class TwitterService {
         return dtoList;
     }
 
+    /**
+     * Simple structure to set the data in String in the right. To facilitate data entry in the frontend
+     *
+     * @param sentimental value int
+     * @return value int in String.
+     */
     private String obtainSentimentalStatus(int sentimental) {
         String status = null;
 
@@ -106,7 +127,6 @@ public class TwitterService {
 
         return status;
     }
-
 
 
 }
