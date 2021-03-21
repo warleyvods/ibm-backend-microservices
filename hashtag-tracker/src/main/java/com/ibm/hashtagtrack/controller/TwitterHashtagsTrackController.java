@@ -1,7 +1,7 @@
 package com.ibm.hashtagtrack.controller;
 
 import com.ibm.hashtagtrack.models.HashtagEntity;
-import com.ibm.hashtagtrack.models.Positions;
+import com.ibm.hashtagtrack.models.TweetDTO;
 import com.ibm.hashtagtrack.service.HashtagService;
 import com.ibm.hashtagtrack.service.TwitterService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -46,8 +46,8 @@ public class TwitterHashtagsTrackController {
             tags = "Hashtag Tracker Search Controller"
     )
     @GetMapping("/v1/hashtag")
-    public ResponseEntity<List<Positions>> getHashtagsCoordinates(@RequestParam String search) {
-        List<Positions> twitterCoordinates = twitterService.getTwitterCoordinates(search);
+    public ResponseEntity<List<TweetDTO>> getHashtagsCoordinates(@RequestParam String search) {
+        List<TweetDTO> twitterCoordinates = twitterService.getTwitterCoordinates(search);
         return new ResponseEntity<>(twitterCoordinates, HttpStatus.OK);
     }
 

@@ -12,9 +12,25 @@ The architecture is composed by four services:
 - `gateway-server`: API Gateway created with **Zuul** that uses the `discovery-service` to send the requests to the services. It uses **Ribbon** as Load Balancer
 - `hashtag-tracker`: Simple REST service created with **Spring Boot** to find hashtags location from Twitter API.
 
+
+## Tecnologies used
+
+- Java 11
+- Springboot Framework
+- Spring Cloud OpenFeign
+- Spring Cloud Eureka Discovery
+- Spring Cloud Ribbon
+- Spring Cloud Zull Gateway
+- Caffeine Cache
+- Spring Cloud Hystrix (Cirquit Breaker)
+- Spring Cloud Config
+- Stanford JavaNLP library (Natural language processing)
+- Docker
+- PostgreSQL
+
 ## How to use
 
-To test this architecture you will need to have: **JDK 11**, **Docker** and **Maven** installed
+To test this architecture you will need to have: **JDK 11**, **Docker** and **Maven** installed or **Docker** with **docker-compose**
 
 - Clone this repo and enter it
 

@@ -18,6 +18,7 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <stanford.corenlp.version>3.9.2</stanford.corenlp.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
     </properties>
 
@@ -107,6 +108,19 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>${stanford.corenlp.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>${stanford.corenlp.version}</version>
+            <classifier>models</classifier>
         </dependency>
 
         <dependency>
