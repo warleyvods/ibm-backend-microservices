@@ -12,6 +12,9 @@ The architecture is composed by four services:
 - `gateway-server`: API Gateway created with **Zuul** that uses the `discovery-service` to send the requests to the services. It uses **Ribbon** as Load Balancer
 - `hashtag-tracker`: Simple REST service created with **Spring Boot** to find hashtags location from Twitter API.
 
+## Live on AWS
+http://3.12.198.17/tracker/
+
 
 ## Tecnologies used
 
