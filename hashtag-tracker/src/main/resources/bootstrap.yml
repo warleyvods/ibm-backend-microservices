@@ -6,6 +6,8 @@ spring:
     cache-names: 'twitterCoordinates'
     caffeine:
       spec: 'expireAfterAccess=5s'
+  application:
+    name: hashtag-tracker
   jpa:
     properties:
       org.hibernate.envers:
@@ -17,7 +19,7 @@ spring:
       ddl-auto: update
 
   datasource:
-    url: '${DATABASE_CONNECTION_URL:jdbc:postgresql://localhost:5433/twitter}'
+    url: '${DATABASE_CONNECTION_URL:jdbc:postgresql://localhost:5432/twitter}'
     username: root
     password: root
     driver-class-name: org.postgresql.Driver

@@ -59,6 +59,7 @@ services:
       - config-server
       - discovery
       - gateway
+      - db
     restart: on-failure
 
   db:

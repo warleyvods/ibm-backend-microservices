@@ -13,8 +13,10 @@ import java.io.IOException;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-@NoArgsConstructor
 public class SimpleCorsFilter implements Filter {
+
+    public SimpleCorsFilter() {
+    }
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
@@ -23,6 +25,12 @@ public class SimpleCorsFilter implements Filter {
 
         String origin = request.getHeader("origin");
         addHeaderIfNotExist(response, "Access-Control-Allow-Origin", StringUtils.isEmpty(origin) ? "*" : origin);
+
+        addHeaderIfNotExist(response, "Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        addHeaderIfNotExist(response, "Access-Control-Max-Age", "3600");
+        addHeaderIfNotExist(response, "Access-Control-Allow-Headers",
+                "X-Requested-With, Content-Type, Authorization, x-csrf-token, X-XSRF-TOKEN");
+        addHeaderIfNotExist(response, "Access-Control-Allow-Credentials", "true");
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.getWriter().print("OK");
@@ -37,6 +45,14 @@ public class SimpleCorsFilter implements Filter {
         if (response.getHeader(key) == null) {
             response.setHeader(key, value);
         }
+    }
+
+    @Override
+    public void init(FilterConfig filterConfig) {
+    }
+
+    @Override
+    public void destroy() {
     }
 
 }
